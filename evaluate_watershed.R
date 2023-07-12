@@ -1,6 +1,6 @@
 library(optparse)
 library(PRROC)
-source("watershed.R")
+source("Watershed/watershed.R")
 
 # Helper function to remove NAs from vector
 remove_na <- function(x) {
@@ -145,7 +145,7 @@ evaluate_watershed_shell <- function(input_file, number_of_dimensions, model_nam
 	#######################################
 	auc_object_across_dimensions <- compute_auc_across_dimensions(number_of_dimensions, posterior_prob_test, gam_test_posteriors, real_valued_outliers_test1, binary_outliers_test2)
 
-	return(list(auc=auc_object_across_dimensions, model_params=watershed_model, gam_model_params=gam_data))
+	return(list(auc=auc_object_across_dimensions, model_params=watershed_model, gam_model_params=gam_data, mean_feat=mean_feat,sd_feat=sd_feat))
 }
 
 
